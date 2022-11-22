@@ -1,0 +1,15 @@
+{
+    "name": "p-ui",
+    "version": "1.0.0",
+    "description": "vue3 ui",
+    "main": "index.js",
+    "author": "pq",
+    "license": "MIT",
+    "devDependencies": {
+        "vuepress": "^1.9.7"
+    },
+    "scripts": {
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
+    }
+}
