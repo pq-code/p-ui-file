@@ -1,15 +1,14 @@
 {
-    "name": "p-ui",
+    "name": "p-ui-md",
     "version": "1.0.0",
-    "description": "vue3 ui",
     "main": "index.js",
-    "author": "pq",
     "license": "MIT",
     "devDependencies": {
-        "vuepress": "^1.9.7"
+        "vitepress": "^1.0.0-alpha.29"
     },
     "scripts": {
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs"
+        "docs:dev": "vitepress dev docs",
+        "docs:build": "vitepress build docs",
+        "docs:serve": "vitepress serve docs"
     }
 }
