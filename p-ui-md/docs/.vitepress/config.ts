@@ -9,15 +9,28 @@ export const config: UserConfig = {
       indexName: 'index_name',
     },
     nav: [
-      { text: '文档', link: '/P-UI/article/home' },
-      { text: '组件', link: '/P-UI/component/home' },
+      { text: '文档', link: '/guide/', activeMatch: '/guide/' },
+      { text: '组件', link: '/P-UI/pTabel', activeMatch: '/P-UI/' },
     ],
     socialLinks: [{ icon: 'github', link: 'https://github.com/pq-code/ui' }],
     sidebar: {
-      '/component/': [
+      '/guide/': [
         {
-          text: '组件',
-          children: [{ text: '表格', link: '/P-UI/component/pTabel' }],
+          text: '快速开始',
+          collapsible: true,
+          items: [{ text: '安装', link: '/guide/home' }],
+        },
+      ],
+      '/P-UI/': [
+        {
+          text: '二封组件',
+          collapsible: true,
+          items: [{ text: '表格', link: '/P-UI/pTabel' }],
+        },
+        {
+          text: '新组件',
+          collapsible: true,
+          items: [{ text: '组件1', link: '/P-UI/home' }],
         },
       ],
     },
@@ -26,6 +39,5 @@ export const config: UserConfig = {
       copyright: 'Copyright © 2022-PRESENT vangleer and Vangle contributors',
     },
   },
-  
 };
 export default config;

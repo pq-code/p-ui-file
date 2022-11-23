@@ -13,7 +13,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /P-UI/article/home
+      link: /guide/home
     - theme: alt
       text: 在 GitHub 上查看
       link: https://github.com/pq-code/ui
