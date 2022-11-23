@@ -10,7 +10,6 @@ hero:
   tagline: 可能是吧🤔
   image:
     src: .vitepress/public/vue.svg
-    alt: P-UI/article/home
   actions:
     - theme: brand
       text: 快速开始
@@ -28,5 +27,5 @@ features:
     details: 工作中一些重复利用的组件优化，element-plus二次封装，和新组件的开发
   - icon: 🛠️
     title: 按需引入
-    details: 直接支持按需引入无需配置任何插件。
+    details: 按需引入减少依赖包大小
 ---
