@@ -136,6 +136,7 @@ const tableSetUp = ref({
 ## 插槽
 
 当默认无法满足需求的情下，可以通过 tableColumns 中的 slotName 属性控制是否需要加入插槽
+每个列都可以通过插槽加入自定义的内容，同时可以通过 slotProps 参数获取到列表的数据
 
 ```html
 <table ref="pTable" :tableData="tableData" :tableSetUp="tableSetUp" @handleDelete="handleDelete" @handleEdit="handleEdit" @handleView="handleView">
@@ -167,7 +168,7 @@ const tableSetUp = ref({
 
 ## 单选和多选
 
-
+单选由 selectMode 属性控制，selectMode=true,全部可选，selectMode=false 全部不可选，selectMode=[]
 
 ```html
 <table ref="pTable" :tableData="tableData" :tableSetUp="tableSetUp" @handleDelete="handleDelete" @handleEdit="handleEdit" @handleView="handleView">
@@ -177,9 +178,9 @@ const tableSetUp = ref({
 </table>
 ```
 
-## 合计值
+## 是否可以勾选
 
-计算合计值
+是否可以勾选 selectable 属性控制，selectable 属性为 function，返回值控制是否可以点击，true 为可点击 false 为不可点击。
 
 ```html
 <table ref="pTable" :tableData="tableData" :tableSetUp="tableSetUp" @handleDelete="handleDelete" @handleEdit="handleEdit" @handleView="handleView">
@@ -187,4 +188,103 @@ const tableSetUp = ref({
     <el-input size="mini" v-model="slotProps.scope.row['c']"> </el-input>
   </template>
 </table>
+```
+
+```js
+const selectFn = (row, index) => {
+    if (index === 2) return true
+}
+const tableSetUp = ref({
+  readonly: true,
+  tabelHeight: 300,
+  maxHeight: 400,
+  tableColumns: [
+    { prop: 'a', fixed, label: '列表1', type: '', width: '100' },
+    { prop: 'b', readonly: false, label: '列表2', width: '100', type: '' },
+    { prop: 'c', slotName:'c' label: '列表3', width: '100', type: '' },
+  ],
+  showOperation: {
+    showDelLine: true,
+    showEditLine: true,
+    showView: true,
+  },
+  showSummary: ['a', 'b'],
+  selectFn: selectFn
+});
+```
+
+## 合计值
+
+通过 showSummary 属性控制合计值计算，showSummary = true， 默认全部加入合计值，showSummary=[prop,prop],为数组的时候里面传入 tableColumns 属性中的 prop
+计算特定的列的合计值
+
+```html
+<table ref="pTable" :tableData="tableData" :tableSetUp="tableSetUp" @handleDelete="handleDelete" @handleEdit="handleEdit" @handleView="handleView">
+  <template v-slot:c="slotProps">
+    <el-input size="mini" v-model="slotProps.scope.row['c']"> </el-input>
+  </template>
+</table>
+```
+
+```js
+const tableSetUp = ref({
+  readonly: true,
+  tabelHeight: 300,
+  maxHeight: 400,
+  tableColumns: [
+    { prop: 'a', fixed, label: '列表1', type: '', width: '100' },
+    { prop: 'b', readonly: false, label: '列表2', width: '100', type: '' },
+    { prop: 'c', slotName:'c' label: '列表3', width: '100', type: '' },
+  ],
+  showOperation: {
+    showDelLine: true,
+    showEditLine: true,
+    showView: true,
+  },
+  showSummary: ['a', 'b'],
+});
+```
+
+## 内容过长
+
+当内容过长被隐藏时显示 tooltip, 由 showOverflowTooltip 属性控制，默认不传为 true
+
+```js
+const tableSetUp = ref({
+  readonly: true,
+  tabelHeight: 300,
+  maxHeight: 400,
+  tableColumns: [
+    { prop: 'a', fixed, showOverflowTooltip: true label: '列表1', type: '', width: '100' },
+    { prop: 'b', readonly: false, label: '列表2', width: '100', type: '' },
+    { prop: 'c', slotName:'c' label: '列表3', width: '100', type: '' },
+  ],
+  showOperation: {
+    showDelLine: true,
+    showEditLine: true,
+    showView: true,
+  },
+  showSummary: ['a', 'b'],
+});
+```
+
+## 分页
+
+```js
+const tableSetUp = ref({
+  readonly: true,
+  tabelHeight: 300,
+  maxHeight: 400,
+  tableColumns: [
+    { prop: 'a', fixed, showOverflowTooltip: true label: '列表1', type: '', width: '100' },
+    { prop: 'b', readonly: false, label: '列表2', width: '100', type: '' },
+    { prop: 'c', slotName:'c' label: '列表3', width: '100', type: '' },
+  ],
+  showOperation: {
+    showDelLine: true,
+    showEditLine: true,
+    showView: true,
+  },
+  showSummary: ['a', 'b'],
+});
 ```
