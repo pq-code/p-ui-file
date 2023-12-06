@@ -18,16 +18,16 @@ P-UI 只需要传入 tableSetUp 对象属性中 tableColumns 属性传入所需�
 const tableSetUp = ref({
   tableColumns: [
     {
-      prop: 'a',
-      label: '列表1',
-      type: '',
-      width: '100',
+      prop: "a",
+      label: "列表1",
+      type: "",
+      width: "100",
     },
     {
-      prop: 'b',
-      label: '列表2',
-      width: '100',
-      type: '',
+      prop: "b",
+      label: "列表2",
+      width: "100",
+      type: "",
     },
   ],
 });
@@ -43,8 +43,8 @@ const tableSetUp = ref({
 const tableSetUp = ref({
   rowClassName: () => {},
   tableColumns: [
-    { prop: 'a', label: '列表1', type: '', width: '100' },
-    { prop: 'b', label: '列表2', width: '100', type: '' },
+    { prop: "a", label: "列表1", type: "", width: "100" },
+    { prop: "b", label: "列表2", width: "100", type: "" },
   ],
 });
 ```
@@ -61,8 +61,8 @@ tableColumns 中 fixed 属性和 draggable（可拖拽）同时存在的时候�
 const tableSetUp = ref({
   rowClassName: () => {},
   tableColumns: [
-    { prop: 'a', fixed, label: '列表1', type: '', width: '100' },
-    { prop: 'b', label: '列表2', width: '100', type: '' },
+    { prop: "a", fixed, label: "列表1", type: "", width: "100" },
+    { prop: "b", label: "列表2", width: "100", type: "" },
   ],
 });
 ```
@@ -81,8 +81,8 @@ const tableSetUp = ref({
   maxHeight: 400,
   rowClassName: () => {},
   tableColumns: [
-    { prop: 'a', fixed, label: '列表1', type: '', width: '100' },
-    { prop: 'b', label: '列表2', width: '100', type: '' },
+    { prop: "a", fixed, label: "列表1", type: "", width: "100" },
+    { prop: "b", label: "列表2", width: "100", type: "" },
   ],
 });
 ```
@@ -98,9 +98,9 @@ const tableSetUp = ref({
   tabelHeight: 300,
   maxHeight: 400,
   tableColumns: [
-    { prop: 'a', fixed, label: '列表1', type: '', width: '100' },
-    { prop: 'b', readonly: false, label: '列表2', width: '100', type: '' },
-    { prop: 'c', readonly: false, label: '列表3', width: '100', type: '' },
+    { prop: "a", fixed, label: "列表1", type: "", width: "100" },
+    { prop: "b", readonly: false, label: "列表2", width: "100", type: "" },
+    { prop: "c", readonly: false, label: "列表3", width: "100", type: "" },
   ],
 });
 ```
@@ -112,7 +112,14 @@ showOperation 属性控制是否添加默认按钮，删除，编辑，查看。
 分别对应 handleDelete，handleEdit，handleView 方法接收。
 
 ```html
-<table ref="pTable" :tableData="tableData" :tableSetUp="tableSetUp" @handleDelete="handleDelete" @handleEdit="handleEdit" @handleView="handleView"></table>
+<table
+  ref="pTable"
+  :tableData="tableData"
+  :tableSetUp="tableSetUp"
+  @handleDelete="handleDelete"
+  @handleEdit="handleEdit"
+  @handleView="handleView"
+></table>
 ```
 
 ```js
@@ -121,9 +128,9 @@ const tableSetUp = ref({
   tabelHeight: 300,
   maxHeight: 400,
   tableColumns: [
-    { prop: 'a', fixed, label: '列表1', type: '', width: '100' },
-    { prop: 'b', readonly: false, label: '列表2', width: '100', type: '' },
-    { prop: 'c', readonly: false, label: '列表3', width: '100', type: '' },
+    { prop: "a", fixed, label: "列表1", type: "", width: "100" },
+    { prop: "b", readonly: false, label: "列表2", width: "100", type: "" },
+    { prop: "c", readonly: false, label: "列表3", width: "100", type: "" },
   ],
   showOperation: {
     showDelLine: true,
@@ -139,7 +146,14 @@ const tableSetUp = ref({
 每个列都可以通过插槽加入自定义的内容，同时可以通过 slotProps 参数获取到列表的数据
 
 ```html
-<table ref="pTable" :tableData="tableData" :tableSetUp="tableSetUp" @handleDelete="handleDelete" @handleEdit="handleEdit" @handleView="handleView">
+<table
+  ref="pTable"
+  :tableData="tableData"
+  :tableSetUp="tableSetUp"
+  @handleDelete="handleDelete"
+  @handleEdit="handleEdit"
+  @handleView="handleView"
+>
   <template v-slot:c="slotProps">
     <el-input size="mini" v-model="slotProps.scope.row['c']"> </el-input>
   </template>
@@ -171,7 +185,14 @@ const tableSetUp = ref({
 单选由 selectMode 属性控制，selectMode=true,全部可选，selectMode=false 全部不可选，selectMode=[]
 
 ```html
-<table ref="pTable" :tableData="tableData" :tableSetUp="tableSetUp" @handleDelete="handleDelete" @handleEdit="handleEdit" @handleView="handleView">
+<table
+  ref="pTable"
+  :tableData="tableData"
+  :tableSetUp="tableSetUp"
+  @handleDelete="handleDelete"
+  @handleEdit="handleEdit"
+  @handleView="handleView"
+>
   <template v-slot:c="slotProps">
     <el-input size="mini" v-model="slotProps.scope.row['c']"> </el-input>
   </template>
@@ -183,7 +204,14 @@ const tableSetUp = ref({
 是否可以勾选 selectable 属性控制，selectable 属性为 function，返回值控制是否可以点击，true 为可点击 false 为不可点击。
 
 ```html
-<table ref="pTable" :tableData="tableData" :tableSetUp="tableSetUp" @handleDelete="handleDelete" @handleEdit="handleEdit" @handleView="handleView">
+<table
+  ref="pTable"
+  :tableData="tableData"
+  :tableSetUp="tableSetUp"
+  @handleDelete="handleDelete"
+  @handleEdit="handleEdit"
+  @handleView="handleView"
+>
   <template v-slot:c="slotProps">
     <el-input size="mini" v-model="slotProps.scope.row['c']"> </el-input>
   </template>
@@ -219,7 +247,14 @@ const tableSetUp = ref({
 计算特定的列的合计值
 
 ```html
-<table ref="pTable" :tableData="tableData" :tableSetUp="tableSetUp" @handleDelete="handleDelete" @handleEdit="handleEdit" @handleView="handleView">
+<table
+  ref="pTable"
+  :tableData="tableData"
+  :tableSetUp="tableSetUp"
+  @handleDelete="handleDelete"
+  @handleEdit="handleEdit"
+  @handleView="handleView"
+>
   <template v-slot:c="slotProps">
     <el-input size="mini" v-model="slotProps.scope.row['c']"> </el-input>
   </template>
@@ -286,5 +321,29 @@ const tableSetUp = ref({
     showView: true,
   },
   showSummary: ['a', 'b'],
+});
+```
+
+## 虚拟列表
+
+virtualList 属性控制是否要使用虚拟列表来优化性能
+
+```js
+const tableSetUp = ref({
+  readonly: true,
+  tabelHeight: 300,
+  maxHeight: 400,
+  tableColumns: [
+    { prop: 'a', fixed, showOverflowTooltip: true label: '列表1', type: '', width: '100' },
+    { prop: 'b', readonly: false, label: '列表2', width: '100', type: '' },
+    { prop: 'c', slotName:'c' label: '列表3', width: '100', type: '' },
+  ],
+  showOperation: {
+    showDelLine: true,
+    showEditLine: true,
+    showView: true,
+  },
+  showSummary: ['a', 'b'],
+  virtualList: true
 });
 ```
